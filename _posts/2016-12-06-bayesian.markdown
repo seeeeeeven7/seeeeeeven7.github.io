@@ -1,0 +1,44 @@
+---
+layout: post
+title:  "Bayesian, first meet"
+date:   2016-12-06 18:39:00 +0800
+categories: math bayesian
+---
+<div>
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+	</script>
+	<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+</div>
+
+## **贝叶斯定理 Bayesian Theorem**
+
+当$Pr(A\mid B)$不便求解，但是$Pr(B\mid A)$容易求解时，可以使用贝叶斯定理来帮助进行求解：
+
+$$Pr(A\mid B) = \frac{Pr(B\mid A)Pr(A)}{Pr(B)}$$
+
+## **贝叶斯网络 Bayesian Network**
+
+### **攻击图 + 联合条件概率**
+
+![](/res/images/2016-12-06-01.png){:class="img-responsive"}
+
+#### **后验概率**
+
+一个有意思的问题是当已经检测到结点A被攻击了之后，结点C遭受攻击的可能性？
+
+这就可以通过这样的方式进行计算：
+
+$$Pr(C\mid A)=\frac{Pr(A\mid C)Pr(C)}{Pr(A)}$$
+
+其中$Pr(A)$和$Pr(C)$都可以基于贝叶斯网络进行计算，而$Pr(A\mid C)$可以按照如下方式进行推导：
+
+$$Pr(A\mid C)=Pr(A,B=T\mid C)+Pr(A,B=F\mid C)$$
+
+$$=\frac{Pr(A,B=T,C)}{Pr(C)}+\frac{Pr(A,B=F,C)}{Pr(C)}$$
+
+$$=\frac{Pr(A,B=T,C)}{Pr(B=T\mid C)}*\frac{Pr(B=T\mid C)}{Pr(C)}+\frac{Pr(A,B=F,C)}{Pr(B=F\mid C)}*\frac{Pr(B=F\mid C)}{Pr(C)}$$
+
+$$=Pr(A\mid B=T,C)*Pr(B=T\mid C)+Pr(A\mid B=F,C)*Pr(B=F\mid C)$$
+
+$$=\sum_{B\in {T, F}}{Pr(A\mid B,C)*Pr(B\mid C)}$$
