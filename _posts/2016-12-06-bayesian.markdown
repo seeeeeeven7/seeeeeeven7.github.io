@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Bayesian, first meet"
+title:  "Bayesian 初见"
 date:   2016-12-06 18:39:00 +0800
 categories: math bayesian
 ---
@@ -11,19 +11,19 @@ categories: math bayesian
 	<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 </div>
 
-## **贝叶斯定理 Bayesian Theorem**
+## 贝叶斯定理 Bayesian Theorem
 
 当$Pr(A\mid B)$不便求解，但是$Pr(B\mid A)$容易求解时，可以使用贝叶斯定理来帮助进行求解：
 
 $$Pr(A\mid B) = \frac{Pr(B\mid A)Pr(A)}{Pr(B)}$$
 
-## **贝叶斯网络 Bayesian Network**
+## 贝叶斯网络 Bayesian Network
 
-### **攻击图 + 联合条件概率**
+### 攻击图 + 联合条件概率
 
 ![](/res/images/2016-12-06-01.png){:class="img-responsive"}
 
-#### **后验概率**
+#### 后验概率
 
 一个有意思的问题是当已经检测到结点A被攻击了之后，结点C遭受攻击的可能性？
 
